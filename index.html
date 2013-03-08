@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    <script src="js/morejs.js"></script>
+  </head>
+  
+  <body>
+
+<!-- fork ribbon -->
+<a href="https://github.com/farfromguam/drink-sport"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+
+    <div class="container">
+      <div class="row">
+        <!--banner-->
+        <div class="span2 pull-right text-right">
+          <a id="login">Secure login</a><br>
+          <a class="manage" onclick="resetSeason()">resetSeason()</a><br>
+        </div>
+        <div class="span8 offset2">
+           <h1>Booze and Sports League</h1>
+           <h4>"The official Booze and Sports Website"</h4>
+        </div>
+      </div>
+
+    <div class="row"> <!--content-->
+      <div class="span10">
+
+        <div class="row"> <!-- Rules -->
+          <div class="span2">
+            <img src="img/beer-icon.png"></img>
+          </div>
+          <div class="span8">
+            <h3>League Rules</h3>
+            <ol>
+              <li>Never Talk about Booze and Sports League</li>
+              <li>Don't touch my Percocet, Do you have any Percocet?</li>
+              <li>Don't Call me Francis</li>
+              <li>Do something stupid, like get sick on the ump, your team loses a point</li>
+              <li>Games are 45 minutes. Any longer and we're beating a dead horse, really</li>
+            </ol>
+          </div>
+        </div>
+
+      <div class="playing">
+        <div class="row">
+          <!--Teams-->
+          <div class="span2">
+            <img src="img/beer-icon.png"></img>
+          </div>
+          <div class="span8 teams">
+            <h3>Teams Playing this Year</h3>
+              <div id="teamList">
+                <!-- This will be populated by function populateTeamList -->
+              </div>
+              <div id="signUpButton">
+                <!-- This will be populated by function displayButton -->
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="standings">
+        <div class="row">
+          <!--Table-->
+          <div class="span2">
+            <img src="img/beer-icon.png"></img>
+          </div>
+          <div class="span8">
+            <h3>League Standings</h3>
+            <div id="teamTable">
+              <!-- This will be populated by function addTeamToTable() -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <!--Games-->
+        <div class="span2">
+          <img src="img/beer-icon.png"></img>
+        </div>
+        <div class="span8">
+           <h3><span class="playing">Tentative </span>Game Schedules</h3>
+              <div id="gameSchedules">
+                <!-- will be populated by function populateGameSchedules() -->
+              </div>
+        </div>
+      </div>
+      <div class="row">
+        <!--footer-->
+        <div class="span8 offset2">
+          <hr>
+           <h5>CODE BY :: BACK ROW WWW.ARRIORS :: NSS/2013</h5>
+
+            <!-- Sign up modal -->
+        <form class="form-horizontal" id="signupForm">
+         <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header grass">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="clearForm()">
+                  <bold>close</bold>
+                </button>
+                 <h3 id="myModalLabel">Bats, Beers & Brats</h3>
+            </div>
+          <div class="modal-body dirt">
+                 <div class="control-group">
+                    <label class="control-label">Team name</label>
+                  <div class="controls">
+                      <input type="text" name="teamName" id="inputTeamName" class="teamImput" placeholder="Keep it clean, please!">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">Manager's name</label>
+                  <div class="controls">
+                      <input type="text" name="mgrFirst" id="inputMgrFirst" class="teamImput" placeholder="First">
+                    </div>
+                    <br>
+                  <div class="controls">
+                      <input type="text" name="mgrLast" id="inputMgrLast" class="teamImput" placeholder="Last">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">Manager's phone</label>
+                  <div class="controls">
+                      <input type="text" name="mgrPhone" id="inputMgrPhone" class="teamImput" placeholder="xxx-xxx-xxxx">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">Manager's email</label>
+                  <div class="controls">
+                      <input type="email" name="email" id="inputMgrEmail" class="teamImput email" placeholder="">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">Manager's zipcode</label>
+                <div class="controls">
+                      <input type="text" name="zip" id="inputMgrZip" class="teamImput digits" placeholder="">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label">Team sponsor</label>
+                  <div class="controls">
+                      <input type="text" name="sponsor" id="inputSponsor" class="teamImput" placeholder="">
+                    </div>
+                  </div> 
+            </div><!-- modal body end -->
+            <div class="modal-footer grass form-actions" id="grassbutt">
+                <button type="reset" class="btn clear">Clear Form</button>
+                <button id="addTeam" type="submit" class="btn btn-primary">Register Your Team</button>
+                <input type="reset" class="btn clear" data-dismiss="modal" aria-hidden="true" value="Cancel">
+            </div>  <!-- footer end -->
+         </div> <!-- modal end -->
+       </form> <!-- form ends after modal to make validation work in modal -->
+
+            <!--Add Scores Modal -->
+            <div id="scoreModal" class="modal modal-mini hide fade">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>Final Score: <span id="stamp"></span>&nbspPlay</h3>
+              </div>
+              <div class="modal-body">
+                <form class="form-horizontal">
+
+                  <input id="passStamp"  type="hidden" value="">
+                  <input id="passWhen" type="hidden" value="">
+                  <input id="passGame" type="hidden" value="">
+                  <input id="passHomeId" type="hidden" value="">
+                  <input id="passAwayId" type="hidden" value="">
+
+                  <div class="control-group">
+                    <label id="homeTeamLabel" class="control-label">Home Name</label>
+                    <div class="controls">
+                      <input type="number" id="inputHomeTeamScore" class="input-mini">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label id="awayTeamLabel" class="control-label">Away Name</label>
+                    <div class="controls">
+                      <input type="number" id="inputAwayTeamScore" class="input-mini">
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <a data-dismiss="modal" aria-hidden="true" class="btn" onclick="logGameOutcome()">commit -m "scores"</a>
+              </div>
+            </div><!--End Add Scores Modal -->
+
+        </div>
+      </div>
+    </div>
+
+    <div id="console" class="span2">
+      <h5>Activity Console:</h5>
+    </div>
+  </div>
+  </div>
+
+    <div id="loading-indicator" style="display:none">            
+    </div>
+
+  </body>
+</html>

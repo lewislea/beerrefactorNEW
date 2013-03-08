@@ -1,0 +1,106 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.manage {
+    display:none;
+}
+
+.playing {
+    display:inline;
+}
+
+.standings {
+    display:none;
+} 
+
+.show{
+    cursor: pointer;
+}
+
+.teams .more {
+    padding-left: 25px;
+}
+
+#delete_me {
+    color: red;
+}
+
+.modal-mini {
+    /* new custom width */
+    width: 400px;
+    /* must be half of the width, minus scrollbar on the left (30px) */
+    margin-left: -200px;
+}
+
+
+/*body {
+    position: relative;
+    margin: 0;
+}*/
+
+#loading-indicator {
+    background:url(../img/loadingWal.png) no-repeat center;
+    position: absolute;
+    left: 0; right: 0;
+    top: 0; bottom: 0;
+    z-index: 1000;
+    background-color: #f8f8f8;
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+}
+
+ form h3 {
+    color: white;
+    text-shadow:
+        -1px -1px 0 #000,
+         5px -1px 0 #000,
+        -1px  1px 0 #000,
+         5px  1px 0 #000;  
+}
+          
+.grass {
+    background-image: url("../img/grass.jpg");
+}
+.dirt {
+    background-image: url("../img/dirt.jpg");
+}
+          
+#signupForm {
+    color: white;
+    font-size: 110%;
+    font-weight: bold;
+    text-shadow:
+        -1px -1px 0 #000,
+         4px -1px 0 #000,
+        -1px  1px 0 #000,
+         4px  1px 0 #000;  
+}
+
+div.tooltip.formInput {
+margin: -3px 0 0 20px;
+}
+
+div.tooltip.formOther {
+margin: -3px 0 0 0;
+}
+
+.table-striped th {
+    background-color: rgb(193,193,193);
+}
+
+#signupForm label {
+    font-size: 120%;
+}
+
+label.error {
+    font-style: italic;
+    text-shadow: 
+    -1px -1px 0 #000,
+         4px -1px 0 #000,
+        -1px  1px 0 #000,
+         4px  1px 0 #000;
+}
+
+#grassbutt {
+    margin-top: 0;
+}
