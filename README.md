@@ -7,6 +7,10 @@ Melanie Hall
 
 See the live site @ https://refactoringnew-r56nc.backliftapp.com/
 
+Updated Feature:
+- Added Form Validation (prevents adding ties, non-integer characters, and negative numbers)
+
+
 Original Code by:
 Joe Shepherd
   and
