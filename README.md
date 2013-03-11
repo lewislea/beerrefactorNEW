@@ -10,7 +10,7 @@ See the live site @ https://refactoringnew-r56nc.backliftapp.com/
 Original Code by:
 Joe Shepherd
   and
-The guy with suspenders, Christopher Fryman
+The guy with suspenders, Christopher Fryman | 
 Original live site @ https://drinksport-3g3ez.backliftapp.com/
 
 
