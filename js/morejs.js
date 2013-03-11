@@ -428,7 +428,6 @@ function logGameOutcome() {
   };
 
   if ($("#scoreForm").valid() === true){
-    alert("true!")
   $.ajax({
     url: 'backliftapp/outcomes',
     type: "POST",
