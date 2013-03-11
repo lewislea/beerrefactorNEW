@@ -160,9 +160,11 @@ function track(item) {
 };
 
 function clearForm(){
-    $('#signupForm').each (function(){  
+    $('#signupForm').each(function(){  
         this.reset();
-   }); 
+           });
+    $('#scoreForm').formReset(); 
+
   };
 
   function startSeason() {
@@ -352,6 +354,56 @@ var blankSchedule8 = [
 function logScoreModal(htn, hti, atn, ati, stamp, when, game) {
   //launch modal
   $('#scoreModal').modal('show');
+
+ //VALIDATE SCORE FORM
+//Begin validation courtesy of [jQuery Validation Plugin](http://bassistance.de/jquery-plugins/jquery-plugin-validation/) - Form validation made easy
+jQuery.validator.addMethod("notEqual", function(value, element, param) {
+ return this.optional(element) || value != $(param).val();
+}, "There's no tying in baseball...please re-enter score");
+
+
+var validator = $("#scoreForm").validate({
+       rules: {
+        homeTeamScore: {
+              required: true,
+              digits : true
+            },
+              // unique: true},
+        awayTeamScore: {
+              required : true,
+              minlength : 1,
+              digits : true,
+              notEqual: "#inputHomeTeamScore"
+
+              // unique: true
+          }
+
+        }, //end of rules
+       messages: {
+        homeTeamScore : {
+          required: "Please enter a number",
+          minlength : "Please enter a score."
+       },
+        awayTeamScore : {
+          required: "Please enter a number",
+          minlength : "Please enter a score.",
+      }
+    }, //end messages
+}); //end validate
+
+// $('#submitForm').on('click'), function(){
+//   if($('#scoreForm').valid() == true){
+//   logGameOutcome();
+//   $('form').reset();
+//   $('form').modal('hide');
+
+// }
+// else{
+//   $('scoreForm').reset();
+// };
+
+// }; //end click
+
   //set text on page
   $("span[id='stamp']").text(stamp);
   $("label[id='homeTeamLabel']").text(htn);
@@ -374,6 +426,9 @@ function logGameOutcome() {
     homeTeamScore: $("#inputHomeTeamScore").val(),
     awayTeamScore: $("#inputAwayTeamScore").val(),
   };
+
+  if ($("#scoreForm").valid() === true){
+    alert("true!")
   $.ajax({
     url: 'backliftapp/outcomes',
     type: "POST",
@@ -406,6 +461,14 @@ function logGameOutcome() {
 
     }
   }); // end ajax
+}
+else{
+      $("#inputHomeTeamScore").val("");
+      $("#inputAwayTeamScore").val("");
+  alert('Sorry, please submit a correct score.');
+}
+
+
 }; // end log game outcome
 
 
@@ -418,7 +481,8 @@ function increment(id, key, amt) {
     success: function (data) {
       if (key === "wins") {        
         $.ajax({ url: 'backliftapp/team/'+id, type: "PUT", data: {wins: parseFloat(data.wins)+parseFloat(amt)}, dataType: "json", });
-      } else if (key === "losses") {
+      } 
+      else if (key === "losses") {
         $.ajax({ url: 'backliftapp/team/'+id, type: "PUT", data: {losses: parseFloat(data.losses)+parseFloat(amt)}, dataType: "json", });
       }
     } // end sucess

@@ -50,30 +50,21 @@
 }
 
  form h3 {
-    color: white;
-    text-shadow:
-        -1px -1px 0 #000,
-         5px -1px 0 #000,
-        -1px  1px 0 #000,
-         5px  1px 0 #000;  
+    color: black;
+
 }
           
 .grass {
-    background-image: url("../img/grass.jpg");
+/*    background-image: url("../img/grass.jpg");*/
 }
 .dirt {
-    background-image: url("../img/dirt.jpg");
+/*    background-image: url("../img/dirt.jpg");*/
 }
           
 #signupForm {
-    color: white;
+    color: black;
     font-size: 110%;
     font-weight: bold;
-    text-shadow:
-        -1px -1px 0 #000,
-         4px -1px 0 #000,
-        -1px  1px 0 #000,
-         4px  1px 0 #000;  
 }
 
 div.tooltip.formInput {
@@ -94,11 +85,7 @@ margin: -3px 0 0 0;
 
 label.error {
     font-style: italic;
-    text-shadow: 
-    -1px -1px 0 #000,
-         4px -1px 0 #000,
-        -1px  1px 0 #000,
-         4px  1px 0 #000;
+
 }
 
 #grassbutt {
