@@ -1,11 +1,18 @@
 Drink-Sport, a rec league signup, scheduling, and scores management app.
 ===========
+Refactoring done by:
+Lewis Lea
+and
+Melanie Hall
 
-A joint collaboration by:
+See the live site @ https://refactoringnew-r56nc.backliftapp.com/
+
+Original Code by:
 Joe Shepherd
   and
 The guy with suspenders, Christopher Fryman
-Play with it live @ https://drinksport-3g3ez.backliftapp.com/
+Original live site @ https://drinksport-3g3ez.backliftapp.com/
+
 
 Code repo for Nashvile Software School beer league project
 
